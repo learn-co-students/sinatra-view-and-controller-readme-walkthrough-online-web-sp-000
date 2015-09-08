@@ -7,6 +7,7 @@
 2. Manipulate data inside of a route in the controller, use the .reverse method
 3. Assign data to an instance variable
 4. render the instance variable on a view using erb.
+5. .
 
 
 ## Overview
