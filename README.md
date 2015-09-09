@@ -70,6 +70,19 @@ Instance variables allow us to bypass scope between the various methods in a cla
 ```
 We can now access the contents of `@reversed_string` inside of our view, `reversed.erb`.
 
+**Note:** instance variables are ONLY passed from the controller method where they are created to the view that is rendered, not between controller methods. For example:
+
+```ruby
+  get "/" do
+    @user = "Ian"
+    erb: index #@user will be defined as "Ian" in the view
+  end
+
+  get "/profile" do
+    erb: profile # @user will be nil here
+  end
+```
+
 ## Rendering using ERB tags
 
 Right now the content of `reversed.erb` is just plain old vanilla HTML in a .erb file. In order to show the content of a Ruby string, we need to use erb tags. As a recap:
