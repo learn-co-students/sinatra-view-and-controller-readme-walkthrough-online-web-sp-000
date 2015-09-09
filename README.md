@@ -2,14 +2,6 @@
 
 # Passing Data Between Views And Controllers in Sinatra
 
-##OUTLINE FOR TEACHERS
-1. Review passing data from a form to a controller.
-2. Manipulate data inside of a route in the controller, use the .reverse method
-3. Assign data to an instance variable
-4. render the instance variable on a view using erb.
-5. Iterate through an array in erb
-
-
 
 ## Overview
 
