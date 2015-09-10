@@ -1,5 +1,8 @@
 tags:
-  - tag1
+  - sinatra
+  - views
+  - controllers
+  - instance variables
+  - erb
 languages:
-  - language1
-resources: 0
+  - ruby
