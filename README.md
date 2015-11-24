@@ -42,6 +42,8 @@ Let's start by taking a look at our params, when we submit the form on the /reve
 ```
  When we submit the form, the contents of params will be output **in the console**. Let's submit "It's not easy being green" to the form and look at `params` in our console:
  
+![Puts Parmams](https://s3.amazonaws.com/learn-verified/puts-params.png)
+
 <img src="https://s3.amazonaws.com/learn-verified/puts-params.png">
 
 To manipulate the string, let's take it out of the params hash, and then call the `.reverse` method on it:

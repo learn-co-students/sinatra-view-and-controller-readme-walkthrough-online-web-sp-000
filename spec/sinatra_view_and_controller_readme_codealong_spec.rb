@@ -23,8 +23,6 @@ describe "App" do
 
   end
 
-  #DESCRIBE GET /FRIENDS
-
   describe 'GET /friends' do 
 
     it 'responds with a 200' do 
