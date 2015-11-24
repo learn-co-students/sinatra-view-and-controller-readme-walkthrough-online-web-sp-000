@@ -1,5 +1,3 @@
-
-
 # Passing Data Between Views And Controllers in Sinatra
 
 
@@ -15,7 +13,7 @@ In this code-along, we'll show you how to pass data back to views from your cont
 
 ## Setup
 
-To code along, fork and clone this repository. Run `bundle install` from the command line to ensure you have the proper dependencies installed. The starter code contains a basic Sinatra application which you can access by running `shotgun` in your command line and then opening `http://localhost:9393/reverse` in your browser. For issues with local deployment using Sinatra, visit [this readme](MISSING).
+To code along, fork and clone this repository. Run `bundle install` from the command line to ensure you have the proper dependencies installed. The starter code contains a basic Sinatra application which you can access by running `shotgun` in your command line and then opening `http://localhost:9393/reverse` in your browser.
 
 ### Starter Code
 Let's take a closer look at the starter code.
@@ -44,9 +42,9 @@ Let's start by taking a look at our params, when we submit the form on the /reve
 ```
  When we submit the form, the contents of params will be output **in the console**. Let's submit "It's not easy being green" to the form and look at `params` in our console:
  
-```
-{"string"=>"It's not easy being green"}
-```
+![Puts Parmams](https://s3.amazonaws.com/learn-verified/puts-params.png)
+
+
 To manipulate the string, let's take it out of the params hash, and then call the `.reverse` method on it:
 ```ruby
   post '/reverse' do
@@ -106,11 +104,11 @@ We know that the contents of `@reversed_string` are available to the erb file, s
  </body>
 </html>
 ```
-Notice that we've put the erb tag with `@reversed_string` within `<h2>` tags. Just some additonal styling!
+Notice that we've put the erb tag with `@reversed_string` within `<h2>` tags. Just some additional styling!
 
 ## Iterating in ERB
 
-We have one additional `get` request that we're going to use to practice sending data from the controller to a view. In this case, we want to assign an array (rather than a string) to an instance variable. Let's create an array called @friends inside of the `get /friends do` route, and render the `friends.erb` page:
+We have one additional `get` request that we're going to use to practice sending data from the controller to a view. In this case, we want to assign an array (rather than a string) to an instance variable. Let's create an array called `@friends` inside of the `get /friends do` route, and render the `friends.erb` page:
 
 ```
   get '/friends' do
