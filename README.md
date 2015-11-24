@@ -44,7 +44,6 @@ Let's start by taking a look at our params, when we submit the form on the /reve
  
 ![Puts Parmams](https://s3.amazonaws.com/learn-verified/puts-params.png)
 
-<img src="https://s3.amazonaws.com/learn-verified/puts-params.png">
 
 To manipulate the string, let's take it out of the params hash, and then call the `.reverse` method on it:
 ```ruby
