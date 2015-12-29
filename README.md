@@ -45,7 +45,7 @@ Let's start by taking a look at our params when we submit the form on the /rever
     erb :reversed
   end
 ```
- When we submit the form, the contents of params will output **in the console**. Let's submit "Hellow friend" to the form and look at `params` in our console:
+ When we submit the form, the contents of params will output **in the console**. Let's submit "hello friend" to the form and look at `params` in our console:
  
 ![Puts Params](https://s3.amazonaws.com/learn-verified/puts-params.png)
 
