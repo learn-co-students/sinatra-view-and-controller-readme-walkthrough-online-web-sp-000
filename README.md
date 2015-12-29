@@ -78,11 +78,11 @@ We can now access the contents of `@reversed_string` inside of our view, `revers
 ```ruby
   get "/" do
     @user = "Ian"
-    erb: index #@user will be defined as "Ian" in the view
+    erb :index #@user will be defined as "Ian" in the view
   end
 
   get "/profile" do
-    erb: profile # @user will be nil here
+    erb :profile # @user will be nil here
   end
 ```
 
