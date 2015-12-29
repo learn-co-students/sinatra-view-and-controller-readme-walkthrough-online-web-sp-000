@@ -45,7 +45,7 @@ Let's start by taking a look at our params when we submit the form on the /rever
     erb :reversed
   end
 ```
- When we submit the form, the contents of params will output **in the console**. Let's submit "It's not easy being green" to the form and look at `params` in our console:
+ When we submit the form, the contents of params will output **in the console**. Let's submit "hello friend" to the form and look at `params` in our console:
  
 ![Puts Params](https://s3.amazonaws.com/learn-verified/puts-params.png)
 
@@ -78,11 +78,11 @@ We can now access the contents of `@reversed_string` inside of our view, `revers
 ```ruby
   get "/" do
     @user = "Ian"
-    erb: index #@user will be defined as "Ian" in the view
+    erb :index #@user will be defined as "Ian" in the view
   end
 
   get "/profile" do
-    erb: profile # @user will be nil here
+    erb :profile # @user will be nil here
   end
 ```
 
