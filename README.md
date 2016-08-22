@@ -3,14 +3,14 @@
 
 ## Overview
 
-In this code-along, we'll show you how to pass data back to views from your controller using an instance variable, and then render it using ERB. This is an important step in building web applications, because it allows us to make your pages *dynamic* rather than *static* - that is, the data can change depending on the inputs provided by the user. As an example, we'll be creating a "String Reverser" - the user inputs a string ("Hello World") into an HTML form, and is shown the reverse of the string ("dlroW olleH") on the following page.
+In this code-along, we'll show you how to pass data back to views from your controller using an instance variable, and then render it using ERB. 
 
 ## Objectives
 
-1. Review passing data from a form to a controller using `params`
+1. Pass data from a form to a controller using `params`
 2. Manipulate data inside of a route in the controller
 3. Assign data to an instance variable
-4. Render data in a `.erb` file using erb tags.
+4. Render data in a `.erb` file using erb tags
 
 ## Setup
 
@@ -155,4 +155,4 @@ This will set up a loop through all items in `@friends` and then place each item
 ```
 You can imagine how powerful iteration in erb is when you have an array of thousands of items that you have to display in your view! 
 
-<a href='https://learn.co/lessons/sinatra-view-and-controller-readme-walkthrough' data-visibility='hidden'>View this lesson on Learn.co</a>
+<p data-visibility='hidden'>View <a href='https://learn.co/lessons/sinatra-view-and-controller-readme-walkthrough' title='Passing Data Between Views And Controllers in Sinatra'>Passing Data Between Views And Controllers in Sinatra</a> on Learn.co and start learning to code for free.</p>
