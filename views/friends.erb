@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html>
- <head>
-  <meta charset="UTF-8">
-  <title>title</title>
-  <link rel="stylesheet" href="stylesheets/style.css" type="text/css">
- </head>
- <body>
-  <h1> My Super Cool Friends List </h1>
+  <head>
+    <meta charset="UTF-8">
+    <title>My Super Cool Friends List</title>
+    <link rel="stylesheet" href="stylesheets/style.css" type="text/css">
+  </head>
 
-  <% @friends.each do |friend| %>
-    <%=friend %>
-  <% end %>
+  <body>
+    <h1>My Super Cool Friends List</h1>
 
- </body>
+    <!-- Iterate through the @friends array here to display each item in its own <h2> tag -->
+
+    <% @friends.each do |friend| %>
+      <h2><%= friend %></h2>
+    <% end %>
+  </body>
 </html>
