@@ -1,9 +1,8 @@
-# Passing Data Between Views And Controllers in Sinatra
-
+# Passing Data Between Views and Controllers in Sinatra
 
 ## Overview
 
-In this code-along, we'll show you how to pass data back to views from your controller using an instance variable, and then render it using ERB. 
+In this code-along, we'll show you how to pass data back to views from your controller using an instance variable, and then render it using ERB.
 
 ## Objectives
 
@@ -40,23 +39,25 @@ Let's take a closer look at the starter code.
 Let's start by taking a look at our params when we submit the form on the /reverse page. The easiest way to do this is to find the post route to which the form is sending data - in this case `post /reverse do` - and add a `puts params` inside the method:
 
 ```ruby
-  post '/reverse' do
-    puts params
-    erb :reversed
-  end
+post '/reverse' do
+  puts params
+
+  erb :reversed
+end
 ```
  When we submit the form, the contents of params will output **in the console**. Let's submit "hello friend" to the form and look at `params` in our console:
- 
+
 ![Puts Params](https://s3.amazonaws.com/learn-verified/puts-params.png)
 
 
 To manipulate the string, let's take it out of the params hash, and then call the `.reverse` method on it:
 ```ruby
-  post '/reverse' do
-    original_string = params["string"]
-    reversed_string = original_string.reverse
-    erb :reversed
-  end
+post '/reverse' do
+  original_string = params["string"]
+  reversed_string = original_string.reverse
+
+  erb :reversed
+end
 ```
 We now have a reversed version of the original string submitted by the user. Great! But it's in our controller, which our user will never see. How do we pass this data back in to a view?
 
@@ -65,25 +66,27 @@ We now have a reversed version of the original string submitted by the user. Gre
 Instance variables allow us to bypass scope between the various methods in a class. Creating an instance variable in a controller method (route) lets the contents become 'visible' to the erb file to which it renders. Instead of creating a local variable `reversed_string`, change it to an instance variable `@reversed_string`.
 
 ```ruby
-  post '/reverse' do
-    original_string = params["string"]
-    @reversed_string = original_string.reverse
-    erb :reversed
-  end
+post '/reverse' do
+  original_string = params["string"]
+  @reversed_string = original_string.reverse
+
+  erb :reversed
+end
 ```
 We can now access the contents of `@reversed_string` inside of our view, `reversed.erb`.
 
 **Note:** Instance variables are ONLY passed from the controller method where they are created to the view that is rendered, not between controller methods. For example:
 
 ```ruby
-  get "/" do
-    @user = "Ian"
-    erb :index #@user will be defined as "Ian" in the view
-  end
+get "/" do
+  @user = "Ian"
 
-  get "/profile" do
-    erb :profile # @user will be nil here
-  end
+  erb :index # @user will be defined as 'Ian' in the view
+end
+
+get "/profile" do
+  erb :profile # @user will be nil here
+end
 ```
 
 ## Rendering using ERB tags
@@ -95,42 +98,47 @@ Right now the content of `reversed.erb` is just plain old vanilla HTML in a .erb
 
 We know that the contents of `@reversed_string` are available to the erb file, so let's put them together:
 
-```
+```erb
 <!DOCTYPE html>
 <html>
- <head>
-  <meta charset="UTF-8">
-  <title>title</title>
-  <link rel="stylesheet" href="stylesheets/style.css" type="text/css">
- </head>
- <body>
-  <h1> Your Reversed String!</h1>
-  	<h2><%= @reversed_string %></h2>
- </body>
+  <head>
+    <meta charset="UTF-8">
+    <title>The Ultimate Reversed String!</title>
+    <link rel="stylesheet" href="stylesheets/style.css" type="text/css">
+  </head>
+
+  <body>
+    <h1>The Ultimate Reversed String!</h1>
+
+    <!--   Use ERB tags to bring in an instance variable containing the reversed string -->
+    <h2><%= @reversed_string %></h2>
+  </body>
 </html>
 ```
 Notice that we've put the erb tag with `@reversed_string` within `<h2>` tags. Just some additional styling!
 
 ## Iterating in ERB
 
-We have one additional `get` request that we're going to use to practice sending data from the controller to a view. In this case, we want to assign an array (rather than a string) to an instance variable. Let's create an array called `@friends` inside of the `get /friends do` route, and render the `friends.erb` page:
+We have one additional `get` request that we're going to use to practice sending data from the controller to a view. In this case, we want to assign an array (rather than a string) to an instance variable. Let's create an array called `@friends` inside of the `get '/friends' do` route, and render the `friends.erb` page:
 
-```
-  get '/friends' do
-    @friends = ["Charlie Chaplin", "Richard Pryor", "Eddie Murphy", "Louis CK", "Jerry Seinfeld"]
-    erb :friends
-  end
+```ruby
+get '/friends' do
+  @friends = ['Emily Wilding Davison', 'Harriet Tubman', 'Joan of Arc', 'Malala Yousafzai', 'Sojourner Truth']
+
+  erb :friends
+end
 ```
 In friends.erb, we want to show each item in the array inside of its own `<h2>` tag. Unfortunately this won't work:
 
-```
-#BAD EXAMPLE
+```erb
+<%# BAD EXAMPLE %>
+
 <h2><%= @friends %></h2>
 ```
 
 Instead, we'll have to use iteration with the `.each` method to loop through each item in the array and put it in its separate `<h2>` tag. Let's start with the iterator - notice that we're using erb tags that don't display the evaluated expression:
 
-```
+```erb
 <% @friends.each do |friend| %>
 
 <% end %>
@@ -138,7 +146,7 @@ Instead, we'll have to use iteration with the `.each` method to loop through eac
 
 Next, let's set up what we want to do for each item:
 
-```
+```erb
 <% @friends.each do |friend| %>
 	<h2><%= friend %></h2>
 <% end %>
@@ -146,13 +154,13 @@ Next, let's set up what we want to do for each item:
 
 This will set up a loop through all items in `@friends` and then place each item in the array in its own `<h2>` tag. The rendered HTML will look like this:
 
+```html
+<h2>Emily Wilding Davison</h2>
+<h2>Harriet Tubman</h2>
+<h2>Joan of Arc</h2>
+<h2>Malala Yousafzai</h2>
+<h2>Sojourner Truth</h2>
 ```
-<h2>Charlie Chaplin</h2>
-<h2>Richard Pryor</h2>
-<h2>Eddie Murphy</h2>
-<h2>Louis CK</h2>
-<h2>Jerry Seinfeld</h2>
-```
-You can imagine how powerful iteration in erb is when you have an array of thousands of items that you have to display in your view! 
+You can imagine how powerful iteration in erb is when you have an array of thousands of items that you have to display in your view!
 
 <p data-visibility='hidden'>View <a href='https://learn.co/lessons/sinatra-view-and-controller-readme-walkthrough' title='Passing Data Between Views And Controllers in Sinatra'>Passing Data Between Views And Controllers in Sinatra</a> on Learn.co and start learning to code for free.</p>
