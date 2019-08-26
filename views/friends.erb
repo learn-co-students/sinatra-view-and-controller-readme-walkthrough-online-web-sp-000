@@ -8,7 +8,11 @@
 
   <body>
     <h1>My Super Cool Friends List</h1>
-
+      <ul>
+        <%@friends.each do |friend|%>
+      <li><h2><%= "#{friend}"%></h2></li>
+      <%end%>
+      </ul>
     <!-- Iterate through the @friends array here to display each item in its own <h2> tag -->
 
   </body>
