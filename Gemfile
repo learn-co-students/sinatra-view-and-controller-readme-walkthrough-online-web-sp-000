@@ -12,3 +12,5 @@ group :test do
   gem 'rack-test'
   gem 'pry'
 end
+gem 'standardrb'
+gem 'htmlbeautifier'
