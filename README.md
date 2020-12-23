@@ -1,4 +1,4 @@
-# Passing Data Between Views and Controllers in Sinatra
+ # Passing Data Between Views and Controllers in Sinatra
 
 ## Overview
 
