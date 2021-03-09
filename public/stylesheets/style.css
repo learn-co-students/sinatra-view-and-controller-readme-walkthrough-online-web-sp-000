@@ -1,5 +1,12 @@
+@import url(https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap);
+
 body {
   text-align: center;
-  background-color: #D4F5F5;
-  color: #554348
+  background-color: #58e2e2;
+  color: #9e173d
+}
+
+h2.reverse {
+  font-family: 'Black Ops One', cursive;
+  font-size: 123px;  
 }
