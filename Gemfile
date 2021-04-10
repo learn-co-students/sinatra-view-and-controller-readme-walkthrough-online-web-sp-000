@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
 
-gem 'sinatra'
-gem 'rake'
-gem 'thin'
+gem 'sinatra', '2.1.0'
+gem 'rake', '13.0.3'
+gem 'thin', '1.8.0'
 gem 'shotgun'
 gem 'require_all'
 
